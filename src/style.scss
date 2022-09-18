@@ -1,0 +1,12 @@
+//variabel buatan sendiri
+$bg: rgb(14, 168, 219);
+//variabel primary dan danger yang dibuat sendiri akan mereplace variabel bawaan dari bootstrapnya, dengan syarat variabel buatan harus diatas import bootstrapnya
+$primary: darkblue;
+$danger: salmon;
+
+//import modul bootstrap 
+@import 'bootstrap/scss/bootstrap';
+
+body {
+    background-color: $bg;
+}
