@@ -18,4 +18,4 @@ const jokesService = new JokesService();
 run(alertService, calculatorService, jokesService);
 
 // ketika js berubah (misal memunculkan alert saat pertama dibuka)
-alert("Hello Rizalnokakakakakkakv");
+// alert("Hello Rizalnokakakakakkakv");

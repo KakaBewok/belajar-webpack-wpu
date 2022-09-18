@@ -1,29 +1,4 @@
- komponen webpack:
- 1. entry
- 2. output
- 3. loader (css, scss, babel)
- 4. plugin (html-plugin)
- 5. tools (webpack-merge)
- 
- 
- script pada package json untuk menggunakan file config lain:
-  "build": "webpack --config mywebpack.config.js"
-
-
-
-  "watch": "webpack --watch" berguna agar kita selalui membuild ketika kode js berubah (sama kaya nodemon di server)
-
-
-
-  kalo mau pake bootstrap dan nanti ikut dibundle:
-  -install bootstrap via npm
-  -import bootstrap ke file style (.scss)
-  -import js bootstrapnya ke index.js
-
-
-
-  settingan konfigurasi keseluruhan (prod dan dev):
-  //import plugin html untuk mengenerate html baru ketika setiap kali membundle
+//import plugin html untuk mengenerate html baru ketika setiap kali membundle
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const path = require("path");
