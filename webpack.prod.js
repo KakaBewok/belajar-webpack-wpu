@@ -1,5 +1,8 @@
 //SEBELUM DIJALANKAN SETTING DULU PACKAGE JSONNYA
 
+//mini-css-extract-plugin berguna memisahkan js dan css saat dibundle
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 //mengimport tool npm untuk me merge 2 file konfigurasi
 const { merge } = require("webpack-merge");
 //mengimport file config umum (keseluruhan)
@@ -18,7 +21,16 @@ module.exports = merge(config, {
     path: path.resolve(__dirname, "dist"),
     // mensetting nama filenya dan menghashing agar random
     filename: "main.[contenthash].js",
+    //(module html-loder) penyimpanan untuk asset yang terbundle
+    //[name] = nama asli file sebelum dibundle, [ext] = ekstensi
+    assetModuleFilename: "img/[name]-[hash][ext]",
     //nilai pada key ini berguna agar ketika index.js diubah dan dibundle, pada file outputnya (main[hash].js tidak akan bertambah terus dan hanya 1 file terbaru saja
     clean: true,
   },
+  plugins: [
+    //setting filename akan menentukan nama file bundle css nya
+    new MiniCssExtractPlugin({
+      filename: "main.[contenthash].css",
+    }),
+  ],
 });

@@ -1,5 +1,8 @@
 //SEBELUM DIJALANKAN SETTING DULU PACKAGE JSONNYA
 
+//mini-css-extract-plugin berguna memisahkan js dan css saat dibundle
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 //import plugin html untuk mengenerate html baru ketika setiap kali membundle
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -29,7 +32,9 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         use: [
           // Creates `style` nodes from JS strings
-          "style-loader",
+
+          // style-loader dihapus dan digantikan dengan minicss
+          MiniCssExtractPlugin.loader,
           // Translates CSS into CommonJS
           "css-loader",
           // Compiles Sass to CSS
@@ -50,6 +55,16 @@ module.exports = {
             presets: ["@babel/preset-env"],
           },
         },
+      },
+      //untuk setting file gambar, dll. (agar atribut src bisa dibundle juga)
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+      },
+      {
+        // file dengan salah satu ekstensi dibawah akan ikut terbundle ke folder dist
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: "asset/resource",
       },
     ],
   },

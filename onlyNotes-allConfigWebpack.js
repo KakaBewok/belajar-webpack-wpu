@@ -1,3 +1,5 @@
+// SETTINGAN AWAL SEBELUM CONFIG DIPISAH
+
 //import plugin html untuk mengenerate html baru ketika setiap kali membundle
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
