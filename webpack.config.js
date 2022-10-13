@@ -11,7 +11,30 @@ const path = require("path");
 // object konfig
 module.exports = {
   // entry/patokan lokasi dimana webpack akan membaca kode kita
-  entry: "./src/index.js",
+  //main, entry point utama. vendor, entry point khusus untuk library/modul
+  entry: {
+    //main, helo, vendor akan jadi nama file outputnya
+    main: {
+      import: "./src/index.js",
+      //dependOn berguna ketika entry point (key)main menggunakan lib yang sama dengan entry point lain, 'shared' maksudnya berbagi dependency libnya ke file helo.js begitupun sebaliknya
+      dependOn: "shared",
+    },
+
+    vendor: "./src/vendor.js",
+
+    helo: {
+      import: "./src/hello.js",
+      dependOn: "shared",
+    },
+    //shared disini maksudnya, lib mana yang akan dibagi
+    shared: "lodash",
+  },
+  //ini untuk deduplicate, supaya code di file output main dan helo tidak ada modul/lib yang sama didalamnya (jika ada akan bikin lemot)
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+    },
+  },
 
   //jika tidak ingin ada fungsi eval pada hasil bundle atau agat lebih terbaca lagi, maka berikan nilai false pada key devtool
   devtool: false,

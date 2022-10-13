@@ -20,7 +20,8 @@ module.exports = merge(config, {
     // mensetting nama folder
     path: path.resolve(__dirname, "dist"),
     // mensetting nama filenya dan menghashing agar random
-    filename: "main.[contenthash].js",
+    //[name] mengacu ke nama key dari entry pointnya (main/vendor)
+    filename: "[name].[contenthash].js",
     //(module html-loder) penyimpanan untuk asset yang terbundle
     //[name] = nama asli file sebelum dibundle, [ext] = ekstensi
     assetModuleFilename: "img/[name]-[hash][ext]",

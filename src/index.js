@@ -1,8 +1,10 @@
-//import semua file js yang ada di bootstrap
-import * as bootstrap from "bootstrap";
+//mengimport semua modul/library yang ada di file js vendor
+require("./vendor");
 
 //import modul untuk styling .css
 import css from "./style.scss"; //setelah dipanggil install npm loadersnya
+//dalam contoh ini lodash menggunakan fungsi toupper
+import _ from "lodash";
 
 // import modul js
 import { run } from "./app/app.js";
@@ -16,6 +18,9 @@ const calculatorService = new CalculatorService();
 const jokesService = new JokesService();
 
 run(alertService, calculatorService, jokesService);
+
+//menerapkan fungsi toupper()
+console.log(_.toUpper("index.js"));
 
 // ketika js berubah (misal memunculkan alert saat pertama dibuka)
 // alert("Hello Rizalnokakakakakkakv");

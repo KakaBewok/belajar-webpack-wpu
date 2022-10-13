@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklatihan_webpack_wpu=self.webpackChunklatihan_webpack_wpu||[]).push([[512],{574:(a,n,e)=>{var i=e(486),l=e.n(i)().find([{nama:"Rizal",nim:123},{nama:"Rara",nim:321}],{nama:"Rara"});console.log(l)}},a=>{a(a.s=574)}]);
